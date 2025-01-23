@@ -3,19 +3,20 @@ class ApiError extends Error {
     statusCode = statusCode,
     message = "Internal Server Error",
     errors = [],
-    stack
+    stack = ""
+    
   ) {
     super(message);
     this.statusCode = statusCode;
     this.data = null;
     this.success = false;
     this.message = false;
-    this.errors = this.errors;
+    this.errors = errors;
 
     if (stack) {
       this.stack = stack;
     } else {
-      error.captureStackTrace(this, ApiError);
+      errors.captureStackTrace(this, ApiError);
     }
   }
 }

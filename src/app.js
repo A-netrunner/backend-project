@@ -8,7 +8,7 @@ app.use(
     origin: process.env.CORS_ORIGIN,
     Credentials: true,
   })
-);
+)
 
 app.use(
   express.json({
@@ -22,4 +22,10 @@ app.use(express.static("public"));
 
 app.use(cockie());
 
-export default app;
+//routes
+
+import userRouter from "./routes/user.routes.js";
+
+app.use("/users", userRouter);
+
+export {app}
