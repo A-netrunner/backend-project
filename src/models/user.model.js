@@ -68,4 +68,18 @@ UserSchema.pre("save",async function (next)
     next()
 })
 
+UserSchema.methods.isPasswordMatch = async function(password) {
+  return await  bcrypt.compare(password, this.password);
+}
+
+UserSchema.methods.generateJWT = function(){
+jwt.sign(
+    {
+ )
+}
+
+UserSchema.methods.generateRefreshJWT = function(){
+
+}
+
 export default mongoose.model("User", UserSchema);
