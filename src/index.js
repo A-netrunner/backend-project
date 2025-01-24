@@ -12,18 +12,8 @@ connectDB()
   });
 })
 
-//const app = express();
-// //if ease
-// (async () => {
-//   try {
-//     mongoos.connect(`${process.env.MONGODB_URI}/${DB_Name}`);
-//     app.on("error", (error) => {
-//       console.log("Error connecting to the server", error);
-//     })
-// app.listen(process.env.PORT, () => { console.log(`Server is running on port ${process.env.PORT}`) });
+//routes 
 
-//   } catch (error) {
-//     console.error("ERROR", error);
-//     throw error;
-//   }
-// })();
+// import userRouter from  "./routes/user.routes.js"
+
+// app.use("/users",userRouter)

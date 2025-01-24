@@ -2,7 +2,8 @@ class ApiError extends Error {
   constructor(
     statusCode = statusCode,
     message = "Internal Server Error",
-    errors = []
+    errors = [],
+    stack
   ) {
     super(message);
     this.statusCode = statusCode;

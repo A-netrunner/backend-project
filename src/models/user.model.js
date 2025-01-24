@@ -73,9 +73,17 @@ UserSchema.methods.isPasswordMatch = async function(password) {
 }
 
 UserSchema.methods.generateJWT = function(){
-jwt.sign(
+return jwt.sign(
     {
- )
+        _id: this._id,
+        username: this.username,
+        email: this.email
+    },
+    process.env.JWT_SECRET,
+    {
+        expiresIn: "1h"
+    }
+);
 }
 
 UserSchema.methods.generateRefreshJWT = function(){

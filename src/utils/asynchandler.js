@@ -1,13 +1,16 @@
 import { json, request } from "express";
 
 const asynchandeler = (requestHandler) => {
-  (req, res, next) => {
+  return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch(next).catch(err);
     {
       next(err);
     }
-  };
+  } 
+  
 };
+
+
 
 // const asynchandler = (fn) => async (res, req, next) => {
 //   try {
@@ -19,4 +22,4 @@ const asynchandeler = (requestHandler) => {
 //     });
 //   }
 // };
-// export default asynchandler;
+export default asynchandeler;
