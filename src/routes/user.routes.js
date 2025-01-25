@@ -4,5 +4,5 @@ import {registerUser} from "../controllers/user.controller.js";
 const router = Router()
 // router.route("/login").post(loginUser)
 
-router.route("/api/v1/users").post(registerUser)
+router.route("/register").post(registerUser)
 export default router;
