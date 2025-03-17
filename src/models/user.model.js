@@ -72,11 +72,25 @@ UserSchema.methods.generateAccessToken = function () {
       username: this.username,
       fullName: this.fullName, // Corrected to fullName
     },
-    process.env.ACCESS_TOKEN_SECRET, // Ensure this is the correct environment variable name
+    process.env.ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRES,
     }
   );
 };
+
+
+UserSchema.methods.generateRefreshToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+     
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRES,
+    }
+  );
+}
 
 export const User = mongoose.model("User", UserSchema);
